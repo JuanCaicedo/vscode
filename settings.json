@@ -5,4 +5,116 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "claudeCode.preferredLocation": "panel",
   "editor.minimap.enabled": false,
+
+  // === DVP Vim Configuration ===
+  "vim.leader": "<space>",
+  "vim.timeout": 1000,
+
+  // === Section A: DVP Core Navigation ===
+  // Dvorak home row right hand: d h t n → Vim h j k l
+  // Displaced commands: j→d (delete), k→t (till), l→n (next)
+  "vim.normalModeKeyBindingsNonRecursive": [
+    // --- Navigation: DHTN → HJKL ---
+    { "before": ["d"], "after": ["h"] },
+    { "before": ["h"], "after": ["j"] },
+    { "before": ["t"], "after": ["k"] },
+    { "before": ["n"], "after": ["l"] },
+
+    // --- Displaced commands onto freed keys ---
+    { "before": ["j"], "after": ["d"] },
+    { "before": ["k"], "after": ["t"] },
+    { "before": ["l"], "after": ["n"] },
+
+    // --- Uppercase variants ---
+    { "before": ["D"], "after": ["H"] },
+    { "before": ["H"], "after": ["J"] },
+    { "before": ["T"], "after": ["K"] },
+    { "before": ["N"], "after": ["L"] },
+    { "before": ["J"], "after": ["D"] },
+    { "before": ["K"], "after": ["T"] },
+    { "before": ["L"], "after": ["N"] },
+
+    // === Section B: Spacemacs-Style Leader Layers ===
+
+    // --- SPC w: Window Focus (DVP directions) ---
+    { "before": ["<leader>", "w", "d"], "commands": ["workbench.action.focusLeftGroup"] },
+    { "before": ["<leader>", "w", "h"], "commands": ["workbench.action.focusBelowGroup"] },
+    { "before": ["<leader>", "w", "t"], "commands": ["workbench.action.focusAboveGroup"] },
+    { "before": ["<leader>", "w", "n"], "commands": ["workbench.action.focusRightGroup"] },
+
+    // --- SPC w: Window Move ---
+    { "before": ["<leader>", "w", "D"], "commands": ["workbench.action.moveEditorToLeftGroup"] },
+    { "before": ["<leader>", "w", "H"], "commands": ["workbench.action.moveEditorToBelowGroup"] },
+    { "before": ["<leader>", "w", "T"], "commands": ["workbench.action.moveEditorToAboveGroup"] },
+    { "before": ["<leader>", "w", "N"], "commands": ["workbench.action.moveEditorToRightGroup"] },
+
+    // --- SPC w: Split / Close ---
+    { "before": ["<leader>", "w", "/"], "commands": ["workbench.action.splitEditorRight"] },
+    { "before": ["<leader>", "w", "-"], "commands": ["workbench.action.splitEditorDown"] },
+    { "before": ["<leader>", "w", "c"], "commands": ["workbench.action.closeEditorsInGroup"] },
+    { "before": ["<leader>", "w", "m"], "commands": ["workbench.action.toggleEditorWidths"] },
+    { "before": ["<leader>", "w", "="], "commands": ["workbench.action.evenEditorWidths"] },
+
+    // --- SPC <number>: Numbered Window Access ---
+    { "before": ["<leader>", "1"], "commands": ["workbench.action.focusFirstEditorGroup"] },
+    { "before": ["<leader>", "2"], "commands": ["workbench.action.focusSecondEditorGroup"] },
+    { "before": ["<leader>", "3"], "commands": ["workbench.action.focusThirdEditorGroup"] },
+
+    // --- SPC b: Buffers ---
+    { "before": ["<leader>", "b", "b"], "commands": ["workbench.action.showAllEditors"] },
+    { "before": ["<leader>", "b", "c"], "commands": ["workbench.action.closeActiveEditor"] },
+    { "before": ["<leader>", "b", "l"], "commands": ["workbench.action.nextEditor"] },
+    { "before": ["<leader>", "b", "n"], "commands": ["workbench.action.nextEditor"] },
+    { "before": ["<leader>", "b", "p"], "commands": ["workbench.action.previousEditor"] },
+
+    // --- SPC f: Files ---
+    { "before": ["<leader>", "f", "f"], "commands": ["workbench.action.quickOpen"] },
+    { "before": ["<leader>", "f", "s"], "commands": ["workbench.action.files.save"] },
+    { "before": ["<leader>", "f", "S"], "commands": ["workbench.action.files.saveAll"] },
+    { "before": ["<leader>", "f", "r"], "commands": ["workbench.action.openRecent"] },
+
+    // --- SPC p: Project ---
+    { "before": ["<leader>", "p", "p"], "commands": ["workbench.action.openRecent"] },
+    { "before": ["<leader>", "p", "f"], "commands": ["workbench.action.quickOpen"] },
+
+    // --- SPC s: Search ---
+    { "before": ["<leader>", "s", "p"], "commands": ["workbench.action.findInFiles"] },
+    { "before": ["<leader>", "s", "s"], "commands": ["actions.find"] },
+
+    // --- SPC TAB: Previous Buffer ---
+    { "before": ["<leader>", "<tab>"], "commands": ["workbench.action.quickOpenPreviousRecentlyUsedEditor"] }
+  ],
+
+  "vim.visualModeKeyBindingsNonRecursive": [
+    // --- Navigation: DHTN → HJKL ---
+    { "before": ["d"], "after": ["h"] },
+    { "before": ["h"], "after": ["j"] },
+    { "before": ["t"], "after": ["k"] },
+    { "before": ["n"], "after": ["l"] },
+
+    // --- Displaced commands onto freed keys ---
+    { "before": ["j"], "after": ["d"] },
+    { "before": ["k"], "after": ["t"] },
+    { "before": ["l"], "after": ["n"] },
+
+    // --- Uppercase variants ---
+    { "before": ["D"], "after": ["H"] },
+    { "before": ["H"], "after": ["J"] },
+    { "before": ["T"], "after": ["K"] },
+    { "before": ["N"], "after": ["L"] },
+    { "before": ["J"], "after": ["D"] },
+    { "before": ["K"], "after": ["T"] },
+    { "before": ["L"], "after": ["N"] }
+  ],
+
+  "vim.operatorPendingModeKeyBindingsNonRecursive": [
+    // Motions in operator-pending mode (e.g., "jw" = delete word)
+    { "before": ["d"], "after": ["h"] },
+    { "before": ["h"], "after": ["j"] },
+    { "before": ["t"], "after": ["k"] },
+    { "before": ["n"], "after": ["l"] },
+    { "before": ["j"], "after": ["d"] },
+    { "before": ["k"], "after": ["t"] },
+    { "before": ["l"], "after": ["n"] }
+  ]
 }
