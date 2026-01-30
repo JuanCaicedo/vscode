@@ -4,9 +4,31 @@
     "key": "cmd+i",
     "command": "composerMode.agent",
   },
+  // Disable Continue's cmd+l — we use it for Claude
   {
     "key": "cmd+l",
-    "command": "claude-vscode.insertAtMention",
-    "when": "editorTextFocus",
+    "command": "-continue.focusContinueInput",
+  },
+  // cmd+l when panel is closed: just open Claude (Cmd+Escape to return to editor)
+  {
+    "key": "cmd+l",
+    "command": "claude-vscode.focus",
+    "when": "editorTextFocus && !panelVisible",
+  },
+  // cmd+l when panel is open: insert reference + focus Claude
+  {
+    "key": "cmd+l",
+    "command": "runCommands",
+    "args": {
+      "commands": [
+        "claude-vscode.insertAtMention",
+        "claude-vscode.focus"
+      ]
+    },
+    "when": "editorTextFocus && panelVisible",
+  },
+  {
+    "key": "cmd+alt+b",
+    "command": "claude-vscode.focus",
   },
 ]

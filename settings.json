@@ -69,6 +69,7 @@
 
     // --- SPC f: Files ---
     { "before": ["<leader>", "f", "f"], "commands": ["workbench.action.quickOpen"] },
+    { "before": ["<leader>", "f", "t"], "commands": ["workbench.view.explorer"] },
     { "before": ["<leader>", "f", "s"], "commands": ["workbench.action.files.save"] },
     { "before": ["<leader>", "f", "S"], "commands": ["workbench.action.files.saveAll"] },
     { "before": ["<leader>", "f", "r"], "commands": ["workbench.action.openRecent"] },
@@ -80,6 +81,9 @@
     // --- SPC s: Search ---
     { "before": ["<leader>", "s", "p"], "commands": ["workbench.action.findInFiles"] },
     { "before": ["<leader>", "s", "s"], "commands": ["actions.find"] },
+
+    // --- SPC SPC: Command Palette ---
+    { "before": ["<leader>", "<leader>"], "commands": ["workbench.action.showCommands"] },
 
     // --- SPC TAB: Previous Buffer ---
     { "before": ["<leader>", "<tab>"], "commands": ["workbench.action.quickOpenPreviousRecentlyUsedEditor"] }
