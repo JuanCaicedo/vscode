@@ -1,0 +1,6 @@
+# VS Code managed directories
+extensions/
+cli/
+
+# Override global gitignore to include personal config
+!.claude/

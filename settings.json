@@ -1,0 +1,8 @@
+{
+  "window.commandCenter": true,
+  "workbench.colorTheme": "Monokai",
+  "vim.useSystemClipboard": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "claudeCode.preferredLocation": "panel",
+  "editor.minimap.enabled": false,
+}

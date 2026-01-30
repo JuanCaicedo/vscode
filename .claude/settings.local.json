@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:www.spacemacs.org)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(git check-ignore:*)",
+      "Bash(ln:*)",
+      "Bash(chmod:*)"
+    ]
+  }
+}
