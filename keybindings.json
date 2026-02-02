@@ -31,4 +31,27 @@
     "key": "cmd+alt+b",
     "command": "claude-vscode.focus",
   },
+
+  // === DVP Explorer Navigation ===
+  // d=left (collapse/parent), h=down, t=up, n=right (expand/enter)
+  {
+    "key": "d",
+    "command": "list.collapse",
+    "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "h",
+    "command": "list.focusDown",
+    "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "t",
+    "command": "list.focusUp",
+    "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "n",
+    "command": "list.expand",
+    "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+  },
 ]
