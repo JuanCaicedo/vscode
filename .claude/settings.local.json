@@ -7,7 +7,9 @@
       "WebFetch(domain:raw.githubusercontent.com)",
       "Bash(git check-ignore:*)",
       "Bash(ln:*)",
-      "Bash(chmod:*)"
+      "Bash(chmod:*)",
+      "Bash(python3 -c \"\nimport json\nwith open\\(''/Users/juan.caicedo/.vscode/extensions/anthropic.claude-code-2.1.25-darwin-arm64/package.json''\\) as f:\n    pkg = json.load\\(f\\)\nkbs = pkg.get\\(''contributes'', {}\\).get\\(''keybindings'', []\\)\nfor kb in kbs:\n    print\\(kb\\)\n\")",
+      "Bash(python3:*)"
     ]
   }
 }

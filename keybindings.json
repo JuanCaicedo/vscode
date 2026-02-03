@@ -4,9 +4,61 @@
     "key": "cmd+i",
     "command": "composerMode.agent",
   },
+  // Disable Continue's cmd+l — we use it for Claude
   {
     "key": "cmd+l",
-    "command": "claude-vscode.insertAtMention",
-    "when": "editorTextFocus",
+    "command": "-continue.focusContinueInput",
+  },
+  // cmd+l when panel is closed: just open Claude (Cmd+Escape to return to editor)
+  {
+    "key": "cmd+l",
+    "command": "claude-vscode.focus",
+    "when": "editorTextFocus && !panelVisible",
+  },
+  // cmd+l when panel is open: insert reference + focus Claude
+  {
+    "key": "cmd+l",
+    "command": "runCommands",
+    "args": {
+      "commands": [
+        "claude-vscode.insertAtMention",
+        "claude-vscode.focus"
+      ]
+    },
+    "when": "editorTextFocus && panelVisible",
+  },
+  {
+    "key": "cmd+alt+b",
+    "command": "claude-vscode.focus",
+  },
+
+  // === DVP Explorer: SPC SPC closes explorer ===
+  {
+    "key": "space space",
+    "command": "workbench.action.toggleSidebarVisibility",
+    "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+  },
+
+  // === DVP Explorer Navigation ===
+  // d=left (collapse/parent), h=down, t=up, n=right (expand/enter)
+  {
+    "key": "d",
+    "command": "list.collapse",
+    "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "h",
+    "command": "list.focusDown",
+    "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "t",
+    "command": "list.focusUp",
+    "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "n",
+    "command": "list.expand",
+    "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
   },
 ]
